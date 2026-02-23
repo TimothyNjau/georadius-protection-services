@@ -5,11 +5,13 @@
   --foreground: #171717;
 }
 
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-prim: #2f3293;
+  --color-sec: #ee292c;
+  --color-cont: #ffffff;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -23,4 +25,16 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.carousel-img-wrapper {
+  width: 100%;
+  height: 400px; /* choose your desired height */
+  overflow: hidden;
+}
+
+.carousel-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* important */
 }
