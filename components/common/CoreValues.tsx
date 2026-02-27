@@ -24,24 +24,22 @@ const CoreValues = () => {
   ];
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 px-5 mt-6 gap-5">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 px-3 sm:px-5 mt-4 sm:mt-6 gap-3 sm:gap-5">
       {values.map((value, index) => (
         <div
           key={index}
-          className="bg-gray-300 px-3 py-2 w-[40vw] rounded-lg cursor-pointer"
+          className="bg-gray-300 px-3 py-2 sm:px-4 sm:py-3 rounded-lg cursor-pointer hover:shadow-lg transition-shadow"
         >
           <h2
-            className="text-sec font-semibold text-xl text-center"
-            onClick={() =>
-              setActiveIndex(activeIndex === index ? null : index)
-            }
+            className="text-sec font-semibold text-lg sm:text-xl text-center"
+            onClick={() => setActiveIndex(activeIndex === index ? null : index)}
           >
             {value.title}
           </h2>
 
           {/* Show content only if this index is active */}
           {activeIndex === index && (
-            <div className="title-text mt-2 text-gray-700">
+            <div className="title-text text-sm sm:text-base mt-2 text-gray-700">
               <p>{value.text}</p>
             </div>
           )}

@@ -1,17 +1,14 @@
 import NavigationBar from "../common/NavigationBar";
 
 const Header = () => {
-
-    return (
-        <>
-        <header>
-        <div className="bg-prim h-15 w-full">
-        </div>
+  return (
+    <>
+      <header>
+        <div className="bg-prim h-3 w-full"></div>
         <NavigationBar />
-        </header>        
-        </>
-    )
+      </header>
+    </>
+  );
 };
-
 
 export default Header;
