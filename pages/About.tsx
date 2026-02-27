@@ -19,12 +19,12 @@ const About = () => {
               className="object-cover"
             />
             <div className="absolute bg-black/60 inset-0"></div>
-            <p className="absolute w-5/6 sm:w-3/4 md:w-2/3 bottom-6 sm:bottom-12 md:bottom-20 left-3 sm:left-6 items-center text-white font-semibold text-base sm:text-lg md:text-xl lg:text-2xl z-10">
+            <p className="absolute w-5/6 sm:w-3/4 md:w-2/3 bottom-20 md:bottom-30 left-3 sm:left-6 items-center text-white font-semibold text-base sm:text-lg md:text-xl lg:text-2xl z-10">
               A trusted security partner delivering professional guard services,
               advanced surveillance solutions, and reliable protection for
               businesses, communities, and events.
             </p>
-            <div className="absolute bottom-2 sm:bottom-3 right-2 sm:right-3 z-20 flex flex-col sm:flex-row gap-2">
+            <div className="absolute bottom-2 sm:bottom-3 right-2 sm:right-3 z-20 flex gap-2">
               <button className="px-2 sm:px-3 py-1 sm:py-2 text-sm sm:text-base bg-blue-200 cursor-pointer rounded-md hover:bg-blue-100">
                 Request A Consultation
               </button>

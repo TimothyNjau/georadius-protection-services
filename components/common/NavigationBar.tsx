@@ -31,7 +31,7 @@ const NavigationBar = () => {
             <li className="py-2 px-1 hover:scale-110 hover:text-sec transition-all duration-400 cursor-pointer">
               <Link href={"Career"}>Join Us</Link>
             </li>
-            <li className="py-2 px-1 border rounded-xl bg-sec text-white hover:bg-red-200 hover:text-black transition-all duration-400 cursor-pointer text-sm lg:text-base">
+            <li className="px-3 py-2 bg-sec cursor-pointer rounded-xl text-white hover:bg-red-200 hover:scale-110 hover:text-black transition-all duration-all">
               <Link href={"Contact"}>Contact Us</Link>
             </li>
           </ul>
