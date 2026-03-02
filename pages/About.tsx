@@ -2,7 +2,7 @@ import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import HeroSectionImage from "@/public/assets/images/GUARDS 1.jpeg";
 import SecondarySecurity from "@/public/assets/images/GUARDS SHOWCASE 10.jpeg";
-import { faEye, faBullseye, faShield } from "@fortawesome/free-solid-svg-icons";
+import { faEye, faBullseye} from "@fortawesome/free-solid-svg-icons";
 import CoreValues from "@/components/common/CoreValues";
 
 const About = () => {
@@ -67,7 +67,7 @@ const About = () => {
           </div>
         </section>
 
-        <section className="relative h-56 sm:h-72 md:h-96 lg:h-[50vh] overflow-hidden">
+        <section className="relative h-[35vh] md:h-[40vh] lg:h-[50vh] overflow-hidden">
           <div>
             <Image
               src={SecondarySecurity}
@@ -95,7 +95,7 @@ const About = () => {
                   </h1>
                 </div>
                 <div>
-                  <p className="text-xs sm:text-sm md:text-base transition-all mt-2">
+                  <p className="text-xs p-2 sm:text-sm md:text-base transition-all mt-2">
                     The company&apos;s vision is to be the most reliable
                     security firm in Kenya with the ability to protect, respond
                     and combat any incident of insecurity within the shortest
@@ -114,7 +114,7 @@ const About = () => {
                   </h1>
                 </div>
                 <div>
-                  <p className="text-xs sm:text-sm md:text-base transition-all mt-2">
+                  <p className="text-xs p-2 sm:text-sm md:text-base transition-all mt-2">
                     To provide quality security services to people, businesses,
                     properties, events, occasions and all other places in need
                     of vigilance in our Kenyan society.
@@ -130,7 +130,7 @@ const About = () => {
              bg-cover bg-center bg-fixed"
         ></section>
 
-        <section className="min-h-screen mt-4 sm:mt-6 md:mt-8 px-3 sm:px-6 py-4 sm:py-6 md:py-8">
+        <section className=" mt-4 sm:mt-6 md:mt-8 px-3 sm:px-6 py-4 sm:py-6 md:py-8">
           <h1 className="text-center text-2xl sm:text-3xl md:text-4xl font-semibold text-sec mb-3 sm:mb-4 md:mb-6">
             Why Choose Us
           </h1>

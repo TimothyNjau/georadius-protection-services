@@ -8,7 +8,7 @@ const NavigationBar = () => {
 
   return (
     <>
-      <nav className="m-auto mb-3 md:mb-5 px-3 md:px-6 rounded-b-xl">
+      <nav className=" sticky m-auto mb-3 md:mb-5 px-3 md:px-6 rounded-b-xl">
         <div className="flex items-center justify-between">
           <div>
             <Image
@@ -18,7 +18,7 @@ const NavigationBar = () => {
             />
           </div>
 
-          <ul className="hidden md:flex md:w-3/5 lg:w-2/3 my-2 text-base lg:text-lg xl:text-xl justify-evenly gap-2 font-bold">
+          <ul className="hidden md:flex md:w-3/5 lg:w-2/3 my-2 text-base lg:text-lg xl:text-xl justify-around gap-2 font-bold">
             <li className="py-2 px-1 hover:scale-110 hover:text-sec transition-all duration-400 cursor-pointer">
               <Link href={"/"}>Home</Link>
             </li>
@@ -27,9 +27,6 @@ const NavigationBar = () => {
             </li>
             <li className="py-2 px-1 hover:scale-110 hover:text-sec transition-all duration-400 cursor-pointer">
               <Link href={"Services"}>Solutions</Link>
-            </li>
-            <li className="py-2 px-1 hover:scale-110 hover:text-sec transition-all duration-400 cursor-pointer">
-              <Link href={"Career"}>Join Us</Link>
             </li>
             <li className="px-3 py-2 bg-sec cursor-pointer rounded-xl text-white hover:bg-red-200 hover:scale-110 hover:text-black transition-all duration-all">
               <Link href={"Contact"}>Contact Us</Link>
