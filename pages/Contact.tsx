@@ -17,12 +17,12 @@ const Contact = () => {
             <h2>Reach Out To Us</h2>
           </div>
         </section>
-        <section className="flex gap-2 flex-col lg:flex-row justify-around">
-          <div>
-            <h1 className="uppercase text-2xl lg:text-3xl">
+        <section className="grid grid-cols-2 mx-8 justify-around mt-10 px-2">
+          <div className="flex flex-col gap-5">
+            <h1 className="uppercase text-2xl lg:text-3xl text-prim font-semibold">
               Trust Us with your safety
             </h1>
-            <div>
+            <div className="flex flex-col gap-8 text-">
               <h2>First Floor, Rowini House, Ruiru Town</h2>
               <div>
                 <h1>Email US</h1>
@@ -35,7 +35,7 @@ const Contact = () => {
             </div>
           </div>
           <div>
-            <form action="" method="post">
+            <form >
               <h2>Send Us A Message</h2>
               <div className="flex flex-col ">
                 <label htmlFor="name">Full Name</label>
@@ -44,7 +44,7 @@ const Contact = () => {
                   name="name"
                   id="name"
                   placeholder="Enter your name"
-                  className="border rounded-md p-3"
+                  className="border rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-sec"
                 />
               </div>
               <div className="flex flex-col ">
@@ -54,7 +54,7 @@ const Contact = () => {
                   name="email"
                   id="email"
                   placeholder="Enter your email"
-                  className="border rounded-md p-3"
+                  className="border rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-sec"
                 />
               </div>
               <div className="flex flex-col">
@@ -64,7 +64,7 @@ const Contact = () => {
                   name="subject"
                   id="subject"
                   placeholder="Enter the subject of your message"
-                  className="border rounded-md p-3"
+                  className="border rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-sec"
                 />
               </div>
               <div className="flex flex-col">
@@ -72,7 +72,7 @@ const Contact = () => {
                 <textarea
                   rows={5}
                   placeholder="Write your message here.."
-                  className="p-3 border rounded-md focus:outline-none focus:ring-2 "
+                  className="p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-sec"
                 ></textarea>
               </div>
             </form>

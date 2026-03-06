@@ -8,7 +8,7 @@ const NavigationBar = () => {
 
   return (
     <>
-      <nav className=" sticky m-auto mb-3 md:mb-5 px-3 md:px-6 rounded-b-xl">
+      <nav className="m-auto mb-3 md:mb-5 md:px-6 rounded-b-xl">
         <div className="flex items-center justify-between">
           <div>
             <Image
@@ -43,7 +43,7 @@ const NavigationBar = () => {
 
           {/*Mobile Menu (shows when isOpen = true*/}
           {isOpen && (
-            <ul className="absolute top-24 left-0 right-0 bg-white shadow-lg rounded-b-lg p-4 md:hidden flex flex-col gap-3 text-base font-inter font-semibold z-50">
+            <ul className=" absolute flex flex-col justify-center items-center gap-10 text-2xl w-screen h-screen bg-black/80 top-0 left-0 text-white z-30 ">
               <li className="hover:text-sec transition-all duration-200 py-2">
                 <Link href="/" onClick={() => setIsOpen(false)}>
                   Home
