@@ -8,8 +8,8 @@ const NavigationBar = () => {
 
   return (
     <>
-      <nav className="m-auto mb-3 md:mb-5 md:px-6 rounded-b-xl">
-        <div className="flex items-center justify-between">
+      <nav className="relative m-auto h-auto mb-3 md:mb-5 md:px-6 rounded-b-xl">
+        <div className="flex min-h-10 items-center justify-between">
           <div>
             <Image
               src={Logo}
@@ -35,7 +35,7 @@ const NavigationBar = () => {
 
           {/**hamburger Button (visible on mobile only) */}
           <button
-            className="md:hidden text-2xl sm:text-3xl"
+            className="md:hidden text-2xl sm:text-3xl z-40"
             onClick={() => setIsOpen(!isOpen)}
           >
             ☰
@@ -43,7 +43,7 @@ const NavigationBar = () => {
 
           {/*Mobile Menu (shows when isOpen = true*/}
           {isOpen && (
-            <ul className=" absolute flex flex-col justify-center items-center gap-10 text-2xl w-screen h-screen bg-black/80 top-0 left-0 text-white z-30 ">
+            <ul className=" absolute top-10 left-0  w-full h-screen flex flex-col justify-center items-center gap-10 text-2xl bg-black/80  text-white z-30 ">
               <li className="hover:text-sec transition-all duration-200 py-2">
                 <Link href="/" onClick={() => setIsOpen(false)}>
                   Home
