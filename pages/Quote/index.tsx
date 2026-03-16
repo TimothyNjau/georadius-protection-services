@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { useEffect, useState } from "react";
 import InputField from "@/components/common/InputField";
 import SelectField from "@/components/common/SelectField";
@@ -151,170 +152,185 @@ const Quote = () => {
     formData.service === "Event Security";
 
   return (
-    <div className="min-h-screen py-10 px-4 sm:px-8 md:px-16 bg-slate-50">
-      <div className="max-w-3xl mx-auto bg-white p-6 rounded-2xl shadow-lg">
-        <h1 className="text-3xl font-bold text-slate-900 mb-2">
-          Get a Security Quote
-        </h1>
-        <p className="text-slate-600 mb-4">
-          Step-by-step form to request a tailored quote.
-        </p>
+    <>
+      <Head>
+        <title>Request Security Quote | GeoRadius Protection Services</title>
+        <meta
+          name="description"
+          content="Request a tailored security quote for manned guarding, event security, CCTV installation, and more in Kenya."
+        />
+        <meta
+          name="keywords"
+          content="security quote Kenya, security services quote, manned guarding quote, event security quote, CCTV quote"
+        />
+      </Head>
+      <div className="min-h-screen py-10 px-4 sm:px-8 md:px-16 bg-slate-50">
+        <div className="max-w-3xl mx-auto bg-white p-6 rounded-2xl shadow-lg">
+          <h1 className="text-3xl font-bold text-slate-900 mb-2">
+            Get a Security Quote
+          </h1>
+          <p className="text-slate-600 mb-4">
+            Step-by-step form to request a tailored quote.
+          </p>
 
-        {showSuccess && (
-          <div className="p-4 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-900 mb-3">
-            <h3 className="font-semibold">Quote Submitted</h3>
-            <p>
-              Thank you! We received your request and will get back to you
-              within 24 hours.
-            </p>
-          </div>
-        )}
-
-        <form onSubmit={submitQuote} className="space-y-4">
-          {step === 1 && (
-            <SelectField
-              id="service"
-              label="Service"
-              value={formData.service}
-              options={services}
-              onChange={(v) => updateField("service", v)}
-              required
-            />
+          {showSuccess && (
+            <div className="p-4 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-900 mb-3">
+              <h3 className="font-semibold">Quote Submitted</h3>
+              <p>
+                Thank you! We received your request and will get back to you
+                within 24 hours.
+              </p>
+            </div>
           )}
 
-          {step === 2 && (
-            <>
-              <InputField
-                id="location"
-                label="Location"
-                value={formData.location}
-                onChange={(v) => updateField("location", v)}
-                required
-              />
-
+          <form onSubmit={submitQuote} className="space-y-4">
+            {step === 1 && (
               <SelectField
-                id="propertyType"
-                label="Property Type"
-                value={formData.propertyType}
-                options={propertyTypes}
-                onChange={(v) => updateField("propertyType", v)}
+                id="service"
+                label="Service"
+                value={formData.service}
+                options={services}
+                onChange={(v) => updateField("service", v)}
                 required
               />
+            )}
 
-              {serviceNeedsGuards && (
-                <>
-                  <InputField
-                    id="guards"
-                    label="Number of Guards"
-                    type="number"
-                    value={formData.guards}
-                    onChange={(v) => updateField("guards", v)}
-                    required
-                  />
-
-                  <InputField
-                    id="numberOfDays"
-                    label="Number of Days"
-                    type="number"
-                    value={formData.numberOfDays}
-                    onChange={(v) => updateField("numberOfDays", v)}
-                    required
-                  />
-                </>
-              )}
-
-              {formData.service === "Event Security" && (
+            {step === 2 && (
+              <>
                 <InputField
-                  id="eventDate"
-                  label="Event Date"
-                  type="date"
-                  value={formData.eventDate}
-                  onChange={(v) => updateField("eventDate", v)}
+                  id="location"
+                  label="Location"
+                  value={formData.location}
+                  onChange={(v) => updateField("location", v)}
                   required
                 />
+
+                <SelectField
+                  id="propertyType"
+                  label="Property Type"
+                  value={formData.propertyType}
+                  options={propertyTypes}
+                  onChange={(v) => updateField("propertyType", v)}
+                  required
+                />
+
+                {serviceNeedsGuards && (
+                  <>
+                    <InputField
+                      id="guards"
+                      label="Number of Guards"
+                      type="number"
+                      value={formData.guards}
+                      onChange={(v) => updateField("guards", v)}
+                      required
+                    />
+
+                    <InputField
+                      id="numberOfDays"
+                      label="Number of Days"
+                      type="number"
+                      value={formData.numberOfDays}
+                      onChange={(v) => updateField("numberOfDays", v)}
+                      required
+                    />
+                  </>
+                )}
+
+                {formData.service === "Event Security" && (
+                  <InputField
+                    id="eventDate"
+                    label="Event Date"
+                    type="date"
+                    value={formData.eventDate}
+                    onChange={(v) => updateField("eventDate", v)}
+                    required
+                  />
+                )}
+              </>
+            )}
+
+            {step === 3 && (
+              <TextAreaField
+                id="message"
+                label="Describe your security needs"
+                value={formData.message}
+                onChange={(v) => updateField("message", v)}
+                required
+              />
+            )}
+
+            {step === 4 && (
+              <>
+                <InputField
+                  id="fullName"
+                  label="Full Name"
+                  value={formData.fullName}
+                  onChange={(v) => updateField("fullName", v)}
+                  required
+                />
+                <InputField
+                  id="company"
+                  label="Company (optional)"
+                  value={formData.company}
+                  onChange={(v) => updateField("company", v)}
+                />
+                <InputField
+                  id="email"
+                  label="Email"
+                  type="email"
+                  value={formData.email}
+                  onChange={(v) => updateField("email", v)}
+                  required
+                />
+                <InputField
+                  id="phone"
+                  label="Phone"
+                  type="tel"
+                  value={formData.phone}
+                  onChange={(v) => updateField("phone", v)}
+                  required
+                />
+              </>
+            )}
+
+            {error && (
+              <p className="text-red-700 bg-red-50 px-3 py-2 rounded">
+                {error}
+              </p>
+            )}
+
+            <div className="flex gap-2 mt-4">
+              {step > 1 && (
+                <button
+                  type="button"
+                  onClick={prevStep}
+                  className="px-4 py-2 border rounded border-slate-300 hover:bg-slate-100"
+                >
+                  Back
+                </button>
               )}
-            </>
-          )}
-
-          {step === 3 && (
-            <TextAreaField
-              id="message"
-              label="Describe your security needs"
-              value={formData.message}
-              onChange={(v) => updateField("message", v)}
-              required
-            />
-          )}
-
-          {step === 4 && (
-            <>
-              <InputField
-                id="fullName"
-                label="Full Name"
-                value={formData.fullName}
-                onChange={(v) => updateField("fullName", v)}
-                required
-              />
-              <InputField
-                id="company"
-                label="Company (optional)"
-                value={formData.company}
-                onChange={(v) => updateField("company", v)}
-              />
-              <InputField
-                id="email"
-                label="Email"
-                type="email"
-                value={formData.email}
-                onChange={(v) => updateField("email", v)}
-                required
-              />
-              <InputField
-                id="phone"
-                label="Phone"
-                type="tel"
-                value={formData.phone}
-                onChange={(v) => updateField("phone", v)}
-                required
-              />
-            </>
-          )}
-
-          {error && (
-            <p className="text-red-700 bg-red-50 px-3 py-2 rounded">{error}</p>
-          )}
-
-          <div className="flex gap-2 mt-4">
-            {step > 1 && (
-              <button
-                type="button"
-                onClick={prevStep}
-                className="px-4 py-2 border rounded border-slate-300 hover:bg-slate-100"
-              >
-                Back
-              </button>
-            )}
-            {step < 5 && (
-              <button
-                type="button"
-                onClick={nextStep}
-                className="px-4 py-2 bg-prim text-white rounded hover:bg-indigo-600"
-              >
-                Next
-              </button>
-            )}
-            {step === 5 && (
-              <button
-                type="submit"
-                className="px-4 py-2 bg-emerald-600 text-white rounded hover:bg-emerald-700"
-              >
-                Submit
-              </button>
-            )}
-          </div>
-        </form>
+              {step < 5 && (
+                <button
+                  type="button"
+                  onClick={nextStep}
+                  className="px-4 py-2 bg-prim text-white rounded hover:bg-indigo-600"
+                >
+                  Next
+                </button>
+              )}
+              {step === 5 && (
+                <button
+                  type="submit"
+                  className="px-4 py-2 bg-emerald-600 text-white rounded hover:bg-emerald-700"
+                >
+                  Submit
+                </button>
+              )}
+            </div>
+          </form>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

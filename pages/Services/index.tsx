@@ -1,3 +1,4 @@
+import Head from "next/head";
 import Image from "next/image";
 import SecurityLineup from "@/public/assets/images/GPS 14.jpeg";
 import ArmedGuard from "@/public/assets/images/GPS 5.jpeg";
@@ -10,6 +11,19 @@ import Investigating from "@/public/assets/images/investigation.jpg";
 const Services = () => {
   return (
     <>
+      <Head>
+        <title>
+          Security Services in Kenya | GeoRadius Protection Services
+        </title>
+        <meta
+          name="description"
+          content="Explore comprehensive security services in Kenya from GeoRadius Protection Services including guarding, CCTV, alarm systems, event security, and investigations."
+        />
+        <meta
+          name="keywords"
+          content="security services Kenya, manned guarding, CCTV installation, event security, alarm systems, dog training, investigations"
+        />
+      </Head>
       <section className="">
         <div className="h-40 sm:h-56 md:h-[42vh] relative overflow-hidden mb-3 sm:mb-4">
           <Image

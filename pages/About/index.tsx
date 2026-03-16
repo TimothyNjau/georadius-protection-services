@@ -1,14 +1,26 @@
+import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import HeroSectionImage from "@/public/assets/images/GUARDS 1.jpeg";
 import SecondarySecurity from "@/public/assets/images/GUARDS SHOWCASE 10.jpeg";
-import { faEye, faBullseye} from "@fortawesome/free-solid-svg-icons";
+import { faEye, faBullseye } from "@fortawesome/free-solid-svg-icons";
 import CoreValues from "@/components/common/CoreValues";
 
 const About = () => {
   return (
     <>
+      <Head>
+        <title>About GeoRadius Protection Services | Security Kenya</title>
+        <meta
+          name="description"
+          content="Learn about GeoRadius Protection Services, a trusted security company in Kenya providing professional guarding, CCTV, alarm systems, and event security."
+        />
+        <meta
+          name="keywords"
+          content="about security company, security kenya, security firm, GeoRadius Protection"
+        />
+      </Head>
       <main className="bg-white">
         <section className="mx-auto mb-6 sm:mb-8 md:mb-12">
           <div className="relative h-56 sm:h-72 md:h-96 lg:h-[40vh] overflow-hidden">
@@ -28,16 +40,15 @@ const About = () => {
             <div className="absolute bottom-2 sm:bottom-3 right-2 sm:right-3 z-20 flex gap-2">
               <Link href={"Quote"}>
                 <button className="px-2 sm:px-3 py-1 sm:py-2 text-sm sm:text-base bg-blue-200 cursor-pointer rounded-md hover:bg-blue-100">
-                Request A Consultation
-              </button>
+                  Request A Consultation
+                </button>
               </Link>
-              
+
               <Link href={"Contact"}>
                 <button className="px-2 sm:px-3 py-1 sm:py-2 text-sm sm:text-base bg-blue-200 cursor-pointer rounded-md hover:bg-blue-100">
-                Contact Us
-              </button>
+                  Contact Us
+                </button>
               </Link>
-              
             </div>
           </div>
         </section>
