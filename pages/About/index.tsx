@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import HeroSectionImage from "@/public/assets/images/GUARDS 1.jpeg";
 import SecondarySecurity from "@/public/assets/images/GUARDS SHOWCASE 10.jpeg";
@@ -25,12 +26,18 @@ const About = () => {
               businesses, communities, and events.
             </p>
             <div className="absolute bottom-2 sm:bottom-3 right-2 sm:right-3 z-20 flex gap-2">
-              <button className="px-2 sm:px-3 py-1 sm:py-2 text-sm sm:text-base bg-blue-200 cursor-pointer rounded-md hover:bg-blue-100">
+              <Link href={"Quote"}>
+                <button className="px-2 sm:px-3 py-1 sm:py-2 text-sm sm:text-base bg-blue-200 cursor-pointer rounded-md hover:bg-blue-100">
                 Request A Consultation
               </button>
-              <button className="px-2 sm:px-3 py-1 sm:py-2 text-sm sm:text-base bg-blue-200 cursor-pointer rounded-md hover:bg-blue-100">
+              </Link>
+              
+              <Link href={"Contact"}>
+                <button className="px-2 sm:px-3 py-1 sm:py-2 text-sm sm:text-base bg-blue-200 cursor-pointer rounded-md hover:bg-blue-100">
                 Contact Us
               </button>
+              </Link>
+              
             </div>
           </div>
         </section>
