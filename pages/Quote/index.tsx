@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import Image from "next/image";
 import InputField from "@/components/common/InputField";
 import SelectField from "@/components/common/SelectField";
 import TextAreaField from "@/components/common/TextAreaField";
@@ -20,7 +19,6 @@ const propertyTypes = [
   "Warehouse",
   "Construction site",
 ];
-const securityDurations = ["One day", "One week", "Monthly contract"];
 
 const Quote = () => {
   const [step, setStep] = useState(1);
@@ -28,8 +26,8 @@ const Quote = () => {
     service: "",
     location: "",
     propertyType: "",
-    securityDuration: "",
     guards: "",
+    numberOfDays: "",
     eventDate: "",
     message: "",
     fullName: "",
@@ -40,7 +38,6 @@ const Quote = () => {
   const [error, setError] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     if (!showSuccess) return;
@@ -58,30 +55,43 @@ const Quote = () => {
 
   const nextStep = () => {
     setError("");
-    // validation per step
+
+    const serviceNeedsGuards =
+      formData.service === "Manned Guarding" ||
+      formData.service === "Event Security";
+
     if (step === 1 && !formData.service) {
       setError("Please select a service.");
       return;
     }
+
     if (step === 2) {
-      if (
-        !formData.location ||
-        !formData.propertyType ||
-        !formData.securityDuration ||
-        !formData.guards
-      ) {
-        setError("Please fill all required service details.");
+      if (!formData.location || !formData.propertyType) {
+        setError("Please fill location and property type.");
         return;
       }
+
+      if (serviceNeedsGuards && !formData.guards) {
+        setError("Please specify the number of guards.");
+        return;
+      }
+
+      if (serviceNeedsGuards && !formData.numberOfDays) {
+        setError("Please specify the number of days.");
+        return;
+      }
+
       if (formData.service === "Event Security" && !formData.eventDate) {
-        setError("Please select event date.");
+        setError("Please select the event date.");
         return;
       }
     }
+
     if (step === 3 && !formData.message) {
       setError("Please describe your security needs.");
       return;
     }
+
     if (step === 4) {
       if (!formData.fullName || !formData.email || !formData.phone) {
         setError("Please fill all required contact info.");
@@ -92,6 +102,7 @@ const Quote = () => {
         return;
       }
     }
+
     setStep((s) => Math.min(5, s + 1));
   };
 
@@ -100,7 +111,6 @@ const Quote = () => {
   const submitQuote = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
-    setIsLoading(true);
 
     try {
       const res = await fetch("/api/sendEmail", {
@@ -121,8 +131,8 @@ const Quote = () => {
         service: "",
         location: "",
         propertyType: "",
-        securityDuration: "",
         guards: "",
+        numberOfDays: "",
         eventDate: "",
         message: "",
         fullName: "",
@@ -133,55 +143,34 @@ const Quote = () => {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (err: any) {
       setError(err.message || "Something went wrong.");
-    } finally {
-      setIsLoading(false);
     }
   };
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const successMessage = submitted ? (
-    <div className="p-4 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-900">
-      <h3 className="font-semibold">Quote Submitted</h3>
-      <p>
-        Thank you! We received your request. We will get back to you within 24
-        hours.
-      </p>
-    </div>
-  ) : null;
+
+  const serviceNeedsGuards =
+    formData.service === "Manned Guarding" ||
+    formData.service === "Event Security";
 
   return (
-    <div className="min-h-screen bg-slate-50">
-      <div className="mx-auto w-full max-w-5xl px-4 pb-10 pt-8 sm:px-6 lg:px-8">
-        <section className="mb-6 rounded-2xl bg-linear-to-r from-slate-900 via-indigo-900 to-emerald-600 p-4 text-white sm:p-6 lg:p-8">
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 items-center">
-            <div>
-              <p className="text-xs uppercase tracking-[0.3em] text-indigo-200">Security Quote</p>
-              <h1 className="mt-2 text-3xl font-extrabold sm:text-4xl">Get Trusted Protection for Your Property</h1>
-              <p className="mt-3 text-slate-200 sm:text-lg">Choose your service and get a tailored quote from our experienced security team.</p>
-              <div className="mt-4 inline-flex rounded-full bg-white/10 px-3 py-1 text-xs font-medium text-slate-100">5 Steps · Fast Response</div>
-            </div>
-            <div className="relative h-48 w-full overflow-hidden rounded-xl border border-white/20 md:h-56">
-              <Image src="/assets/images/event-security.jpg" alt="Security professionals on site" fill className="object-cover" />
-            </div>
+    <div className="min-h-screen py-10 px-4 sm:px-8 md:px-16 bg-slate-50">
+      <div className="max-w-3xl mx-auto bg-white p-6 rounded-2xl shadow-lg">
+        <h1 className="text-3xl font-bold text-slate-900 mb-2">
+          Get a Security Quote
+        </h1>
+        <p className="text-slate-600 mb-4">
+          Step-by-step form to request a tailored quote.
+        </p>
+
+        {showSuccess && (
+          <div className="p-4 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-900 mb-3">
+            <h3 className="font-semibold">Quote Submitted</h3>
+            <p>
+              Thank you! We received your request and will get back to you
+              within 24 hours.
+            </p>
           </div>
-        </section>
+        )}
 
-        <div className="mx-auto w-full max-w-3xl rounded-2xl bg-white p-4 sm:p-6 shadow-md">
-          <div className="mb-4 flex items-center justify-between rounded-xl bg-slate-100 px-3 py-2 text-sm font-medium text-slate-700">
-            <span>Step {step} of 5</span>
-            <span className="hidden sm:inline">Progress: {(step / 5) * 100}%</span>
-          </div>
-
-          <h2 className="text-2xl font-bold text-slate-900">Request a quote</h2>
-          <p className="text-slate-600 mt-1">Complete the form below to receive a quote within 24 hours.</p>
-
-          {showSuccess && (
-            <div className="mt-4 rounded-lg bg-emerald-50 border border-emerald-200 p-3 text-emerald-900">
-              <h3 className="font-semibold">Quote Submitted</h3>
-              <p className="text-sm">Thank you! We received your request and will get back to you within 24 hours.</p>
-            </div>
-          )}
-
-          <form onSubmit={submitQuote} className="space-y-4 mt-4">
+        <form onSubmit={submitQuote} className="space-y-4">
           {step === 1 && (
             <SelectField
               id="service"
@@ -202,6 +191,7 @@ const Quote = () => {
                 onChange={(v) => updateField("location", v)}
                 required
               />
+
               <SelectField
                 id="propertyType"
                 label="Property Type"
@@ -210,22 +200,29 @@ const Quote = () => {
                 onChange={(v) => updateField("propertyType", v)}
                 required
               />
-              <SelectField
-                id="securityDuration"
-                label="Security Duration"
-                value={formData.securityDuration}
-                options={securityDurations}
-                onChange={(v) => updateField("securityDuration", v)}
-                required
-              />
-              <InputField
-                id="guards"
-                label="Number of Guards"
-                type="number"
-                value={formData.guards}
-                onChange={(v) => updateField("guards", v)}
-                required
-              />
+
+              {serviceNeedsGuards && (
+                <>
+                  <InputField
+                    id="guards"
+                    label="Number of Guards"
+                    type="number"
+                    value={formData.guards}
+                    onChange={(v) => updateField("guards", v)}
+                    required
+                  />
+
+                  <InputField
+                    id="numberOfDays"
+                    label="Number of Days"
+                    type="number"
+                    value={formData.numberOfDays}
+                    onChange={(v) => updateField("numberOfDays", v)}
+                    required
+                  />
+                </>
+              )}
+
               {formData.service === "Event Security" && (
                 <InputField
                   id="eventDate"
@@ -309,18 +306,16 @@ const Quote = () => {
             {step === 5 && (
               <button
                 type="submit"
-                disabled={isLoading}
-                className={`px-4 py-2 rounded text-white ${isLoading ? "bg-slate-400" : "bg-emerald-600 hover:bg-emerald-700"}`}
+                className="px-4 py-2 bg-emerald-600 text-white rounded hover:bg-emerald-700"
               >
-                {isLoading ? "Submitting..." : "Submit"}
+                Submit
               </button>
             )}
           </div>
         </form>
       </div>
     </div>
-  </div>
-  )
+  );
 };
 
 export default Quote;
