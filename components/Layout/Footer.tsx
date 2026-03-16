@@ -46,7 +46,7 @@ const Footer = () => {
               Services
             </Link>
             <Link
-              href={"Career"}
+              href={"Careers"}
               className="text-sm sm:text-base hover:text-sec duration-200 transition-colors"
             >
               Career
