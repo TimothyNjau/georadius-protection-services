@@ -137,6 +137,7 @@ const Quote = () => {
       setIsLoading(false);
     }
   };
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const successMessage = submitted ? (
     <div className="p-4 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-900">
       <h3 className="font-semibold">Quote Submitted</h3>
@@ -150,7 +151,7 @@ const Quote = () => {
   return (
     <div className="min-h-screen bg-slate-50">
       <div className="mx-auto w-full max-w-5xl px-4 pb-10 pt-8 sm:px-6 lg:px-8">
-        <section className="mb-6 rounded-2xl bg-gradient-to-r from-slate-900 via-indigo-900 to-emerald-600 p-4 text-white sm:p-6 lg:p-8">
+        <section className="mb-6 rounded-2xl bg-linear-to-r from-slate-900 via-indigo-900 to-emerald-600 p-4 text-white sm:p-6 lg:p-8">
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2 items-center">
             <div>
               <p className="text-xs uppercase tracking-[0.3em] text-indigo-200">Security Quote</p>
