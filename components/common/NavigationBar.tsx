@@ -72,7 +72,7 @@ const NavigationBar = () => {
               </Link>
             </li>
             <li className="hover:text-sec transition-all duration-200 py-2">
-              <Link href="Career" onClick={() => setIsOpen(false)}>
+              <Link href="Careers" onClick={() => setIsOpen(false)}>
                 Join Us
               </Link>
             </li>
