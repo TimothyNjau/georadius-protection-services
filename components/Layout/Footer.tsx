@@ -51,6 +51,12 @@ const Footer = () => {
             >
               Career
             </Link>
+            <Link
+              href={"Media"}
+              className="text-sm sm:text-base hover:text-sec duration-200 transition-colors"
+            >
+              Media
+            </Link>
           </div>
         </section>
         <section className="bg-black w-full py-2 sm:py-3">
