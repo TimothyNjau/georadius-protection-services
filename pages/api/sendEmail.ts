@@ -58,7 +58,7 @@ export default async function handler(
 
   await transporter.sendMail({
    from: `"Website Forms" <${process.env.EMAIL_USER}>`,
-   to: "georadiusprotection@gmail.com",
+   to: "georadiousprotection@gmail.com",
    subject,
    html
   })

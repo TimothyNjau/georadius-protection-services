@@ -26,7 +26,7 @@ const Footer = () => {
               Tel : 0725 572 720
             </h2>
             <h2 className="text-sm sm:text-base cursor-default">
-              Email : georadiussecurity@gmail.com
+              Email : georadiousprotection@gmail.com
             </h2>
           </div>
           <div className="flex flex-col gap-2 text-center lg:text-left">
