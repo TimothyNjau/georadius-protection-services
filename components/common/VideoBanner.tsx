@@ -22,12 +22,12 @@ const VideoBanner = () => {
           Professional security solutions you can trust
         </p>
       </div>
+      </Link>
       <Link
         href={"Quote"}
         className="absolute bottom-3 right-3 sm:bottom-6 sm:right-6 bg-sec hover:bg-sec/40 px-3 sm:px-4 py-2 rounded-md transition-colors duration-300 text-center text-white text-sm sm:text-base md:text-lg lg:text-xl z-10"
       >
         Request A Quote
-      </Link>
       </Link>
       
     </section>
