@@ -7,8 +7,6 @@ const mediaImages = [
   "GUARDS LINEUP 5.jpeg",
   "GPS 17.jpeg",
   "GPS 20.jpeg",
-  "dog-training.jpg",
-  "dog-training (2).jpg",
   "GUARDS 1.jpeg",
   "GUARDS LINEUP 2.jpeg",
   "GPS_PHOTOS_3.jpeg",
